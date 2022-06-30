@@ -1,3 +1,4 @@
+
 from cProfile import label
 from doctest import master
 from email import message
@@ -16,7 +17,7 @@ frame.pack()
 canvas = Canvas(frame, bg="black", width=700, height=400)
 canvas.pack()
 
-bg = PhotoImage(file = "C:/Users/1/Desktop/project clicker/L.png")
+bg = ImageTk.PhotoImage(file = "C:/Users/1/Desktop/project clicker/L.png")
 canvas.create_image(800,566,image=bg)
 label1 = Label(master, image = bg)
 label1.place(x = 0, y = 0)
@@ -42,7 +43,7 @@ click = 0
 mult = 1
 dcp1 = 0
 
-our_button = PhotoImage(file="C:/Users/1/Desktop/project clicker/cookie.png")
+our_button = ImageTk.PhotoImage(file="C:/Users/1/Desktop/project clicker/cookie.png")
 our_button = our_button.subsample(2,2)
 canvas.create_image(30,30,image=our_button)
 
