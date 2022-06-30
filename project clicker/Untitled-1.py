@@ -4,12 +4,20 @@ from email import message
 from logging import root
 from tkinter import *
 from tkinter import messagebox, Tk, Button, Canvas, Frame, BOTH
-from PIL import ImageTk
+from PIL import ImageTk, Image
 import time
+
 
 master = Tk()
 
+frame = Frame(master)
+frame.pack()
+
+canvas = Canvas(frame, bg="black", width=700, height=400)
+canvas.pack()
+
 bg = PhotoImage(file = "C:/Users/1/Desktop/project clicker/L.png")
+canvas.create_image(800,566,image=bg)
 label1 = Label(master, image = bg)
 label1.place(x = 0, y = 0)
 
@@ -36,6 +44,7 @@ dcp1 = 0
 
 our_button = PhotoImage(file="C:/Users/1/Desktop/project clicker/cookie.png")
 our_button = our_button.subsample(2,2)
+canvas.create_image(30,30,image=our_button)
 
 def blankLine():
     for i in range(5):
@@ -55,8 +64,8 @@ def purchaseDoubleClicksCommand():
         messagebox.color
         blankLine()
 click = 0 
-label1 = Label(master, textvariable = click, font=('Times 14'), width=20, height=5)
-label1.pack() 
+label1 = Label(master, textvariable = click, font=('Times 14'), width=10, height=1)
+label1.place(x = 300, y=100)
 for i in range(6): 
     time.sleep(1)   
     master.update_idletasks()
@@ -73,7 +82,7 @@ def purchaseAutoClickerCommand():
         messagebox.showinfo("AUTO CLICKER PURCHASED", "AUTO CLICKER PURCHASED")
         while True:
             click = click + 1
-            time.sleep(1)
+            time.sleep(5)
 
 def purchaseBakeryCommand():
     global click
@@ -116,16 +125,13 @@ def buttonCommand():
 
 
 mainClickButton = Button(master, image=our_button, highlightthickness=0, bd=0, command=buttonCommand)
-mainClickButton.place(x = 190, y=0)
-mainClickButton.pack()
+mainClickButton.place(x = 300, y=200)
 
 purchaseDoubleClickButton = Button(master, text="Purchase Double Clicks", command = purchaseDoubleClicksCommand)
-purchaseDoubleClickButton.place(x=800, y = 100)
-purchaseDoubleClickButton.pack()
+purchaseDoubleClickButton.place(x=100, y = 400)
 
 purchaseAutoClickerButton = Button(master, text="Purchase Auto Clicker", command = purchaseAutoClickerCommand)
-purchaseAutoClickerButton.pack()
-
+purchaseAutoClickerButton.place(x=200, y = 400)
 master.title("Cookie clicker")
 master.geometry("800x533")
 mainloop()
