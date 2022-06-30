@@ -53,9 +53,9 @@ Clicks_Text = IntVar()
 Clicks_Text.set(click)
 label_one = Label(master, text='Cookies counted: ', font='Helvetica 11 bold')
 label1.place(x = 300, y=100)
-while click <= 10000:    
-    CookieNumber_Label = Label(master, textvariable = Clicks_Text, font='Helvetica 10 bold')
-    CookieNumber_Label.place(x=600, y=100)
+
+CookieNumber_Label = Label(master, textvariable = Clicks_Text, font='Helvetica 10 bold')
+CookieNumber_Label.place(x=600, y=100)
 
 def purchaseDoubleClicksCommand():
     global click
@@ -150,19 +150,19 @@ def winGame():
 
 
 mainClickButton = Button(master, image=our_button, highlightthickness=0, bd=0, command=buttonCommand)
-mainClickButton.place(x = 500, y=150)
+mainClickButton.place(x = 550, y=150)
 
 purchaseDoubleClickButton = Button(master, text="Purchase Double Clicks", command = purchaseDoubleClicksCommand)
-purchaseDoubleClickButton.place(x=400, y = 500)
+purchaseDoubleClickButton.place(x=420, y = 500)
 
 purchaseBakeryClickerButton = Button(master, text="Purchase Bakery", command = purchaseBakeryCommand)
-purchaseBakeryClickerButton.place(x=600, y = 500)
+purchaseBakeryClickerButton.place(x=640, y = 500)
 
 purchaseFactoryClickerButton = Button(master, text="Purchase Factory", command = purchaseFactoryCommand)
-purchaseFactoryClickerButton.place(x=800, y = 500)
+purchaseFactoryClickerButton.place(x=820, y = 500)
 
 gameWinButton = Button(master, text="COMPLETE THE GAME", command = winGame)
-gameWinButton.place(x=500, y = 400)
+gameWinButton.place(x=620, y = 450)
 master.title("Cookie clicker")
 master.geometry("800x533")
 mainloop()
