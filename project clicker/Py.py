@@ -16,7 +16,7 @@ frame.pack()
 canvas = Canvas(master, width=0, height=0)
 canvas.pack()
 
-background1 = ImageTk.PhotoImage(file = "C:/Users/УмбетиарТ/Desktop/Cookie-clicker-main/project clicker/L.png")
+background1 = ImageTk.PhotoImage(file = "C:/Users/УмбетиарТ/Desktop/project clicker/gaflr.jpg")
 canvas.create_image(800,566,image=background1)
 label1 = Label(master, image = background1)
 label1.place(x = 0, y = 0)
@@ -42,21 +42,26 @@ click = 0
 mult = 1
 dcp1 = 0
 
-our_button = ImageTk.PhotoImage(file="C:/Users/УмбетиарТ/Desktop/Cookie-clicker-main/project clicker/cookie.png")
+our_button = ImageTk.PhotoImage(file="C:/Users/УмбетиарТ/Desktop/project clicker/cookie2.0.png.png")
 canvas.create_image(30,30,image=our_button)
 
 def blankLine():
     for i in range(5):
         print("")
-click = 0
 Clicks_Text = IntVar()
 Clicks_Text.set(click)
-label_one = Label(master, text='Cookies counted: ', font='Helvetica 11 bold')
-label1.place(x = 300, y=100)
+label2 = Label(master, text="Cookies counted:", fg="brown")
+label2.place(x = 300, y=100)
 
 CookieNumber_Label = Label(master, textvariable = Clicks_Text, font='Helvetica 10 bold')
-CookieNumber_Label.place(x=600, y=100)
+CookieNumber_Label.place(x=395, y=100)
 
+def every_second():
+    global click, Clicks_Text, master
+    Clicks_Text.set(click)
+    master.after(50, every_second)
+
+master.after(1000, every_second)
 def purchaseDoubleClicksCommand():
     global click
     global mult
@@ -67,7 +72,6 @@ def purchaseDoubleClicksCommand():
         mult = mult*2
         click = click - 5
         messagebox.showinfo("DOUBLE CLICKS PURCHASED", "DOUBLE CLICKS PURCHASED")
-        messagebox.color
         blankLine()
 
 
@@ -150,19 +154,19 @@ def winGame():
 
 
 mainClickButton = Button(master, image=our_button, highlightthickness=0, bd=0, command=buttonCommand)
-mainClickButton.place(x = 550, y=150)
+mainClickButton.place(x = 225, y=150)
 
 purchaseDoubleClickButton = Button(master, text="Purchase Double Clicks", command = purchaseDoubleClicksCommand)
-purchaseDoubleClickButton.place(x=420, y = 500)
+purchaseDoubleClickButton.place(x=150, y = 500)
 
 purchaseBakeryClickerButton = Button(master, text="Purchase Bakery", command = purchaseBakeryCommand)
-purchaseBakeryClickerButton.place(x=640, y = 500)
+purchaseBakeryClickerButton.place(x=310, y = 500)
 
 purchaseFactoryClickerButton = Button(master, text="Purchase Factory", command = purchaseFactoryCommand)
-purchaseFactoryClickerButton.place(x=820, y = 500)
+purchaseFactoryClickerButton.place(x=440, y = 500)
 
 gameWinButton = Button(master, text="COMPLETE THE GAME", command = winGame)
-gameWinButton.place(x=620, y = 450)
+gameWinButton.place(x=295, y = 450)
 master.title("Cookie clicker")
 master.geometry("800x533")
 mainloop()
